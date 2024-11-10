@@ -4,16 +4,15 @@ part 'stock_model.freezed.dart';
 part 'stock_model.g.dart';
 
 @freezed
-class StockModel with _$StockModel {
-  const factory StockModel({
-    required int u, // order book updateId
-    required String s, // symbol
-    required String b, // best bid price
-    required String B, // best bid qty
-    required String a, // best ask price
-    required String A, // best ask qty
-  }) = _StockModel;
+class Crypto with _$Crypto {
+  const factory Crypto({
+    @JsonKey(name: "u") required int? updateId,
+    @JsonKey(name: "s") required String? symbol,
+    @JsonKey(name: "b") required String? bestBidPrice,
+    @JsonKey(name: "B") required String? bestBidQty,
+    @JsonKey(name: "a") required String? bestAskPrice,
+    @JsonKey(name: "A") required String? bestAskQty,
+  }) = _Crypto;
 
-  factory StockModel.fromJson(Map<String, dynamic> json) =>
-      _$StockModelFromJson(json);
+  factory Crypto.fromJson(Map<String, dynamic> json) => _$CryptoFromJson(json);
 }

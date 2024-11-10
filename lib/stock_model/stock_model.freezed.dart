@@ -14,248 +14,275 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-StockModel _$StockModelFromJson(Map<String, dynamic> json) {
-  return _StockModel.fromJson(json);
+Crypto _$CryptoFromJson(Map<String, dynamic> json) {
+  return _Crypto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$StockModel {
-  int get u => throw _privateConstructorUsedError; // order book updateId
-  String get s => throw _privateConstructorUsedError; // symbol
-  String get b => throw _privateConstructorUsedError; // best bid price
-  String get B => throw _privateConstructorUsedError; // best bid qty
-  String get a => throw _privateConstructorUsedError; // best ask price
-  String get A => throw _privateConstructorUsedError;
+mixin _$Crypto {
+  @JsonKey(name: "u")
+  int? get updateId => throw _privateConstructorUsedError;
+  @JsonKey(name: "s")
+  String? get symbol => throw _privateConstructorUsedError;
+  @JsonKey(name: "b")
+  String? get bestBidPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: "B")
+  String? get bestBidQty => throw _privateConstructorUsedError;
+  @JsonKey(name: "a")
+  String? get bestAskPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: "A")
+  String? get bestAskQty => throw _privateConstructorUsedError;
 
-  /// Serializes this StockModel to a JSON map.
+  /// Serializes this Crypto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of StockModel
+  /// Create a copy of Crypto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StockModelCopyWith<StockModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CryptoCopyWith<Crypto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StockModelCopyWith<$Res> {
-  factory $StockModelCopyWith(
-          StockModel value, $Res Function(StockModel) then) =
-      _$StockModelCopyWithImpl<$Res, StockModel>;
+abstract class $CryptoCopyWith<$Res> {
+  factory $CryptoCopyWith(Crypto value, $Res Function(Crypto) then) =
+      _$CryptoCopyWithImpl<$Res, Crypto>;
   @useResult
-  $Res call({int u, String s, String b, String B, String a, String A});
+  $Res call(
+      {@JsonKey(name: "u") int? updateId,
+      @JsonKey(name: "s") String? symbol,
+      @JsonKey(name: "b") String? bestBidPrice,
+      @JsonKey(name: "B") String? bestBidQty,
+      @JsonKey(name: "a") String? bestAskPrice,
+      @JsonKey(name: "A") String? bestAskQty});
 }
 
 /// @nodoc
-class _$StockModelCopyWithImpl<$Res, $Val extends StockModel>
-    implements $StockModelCopyWith<$Res> {
-  _$StockModelCopyWithImpl(this._value, this._then);
+class _$CryptoCopyWithImpl<$Res, $Val extends Crypto>
+    implements $CryptoCopyWith<$Res> {
+  _$CryptoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of StockModel
+  /// Create a copy of Crypto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? u = null,
-    Object? s = null,
-    Object? b = null,
-    Object? B = null,
-    Object? a = null,
-    Object? A = null,
+    Object? updateId = freezed,
+    Object? symbol = freezed,
+    Object? bestBidPrice = freezed,
+    Object? bestBidQty = freezed,
+    Object? bestAskPrice = freezed,
+    Object? bestAskQty = freezed,
   }) {
     return _then(_value.copyWith(
-      u: null == u
-          ? _value.u
-          : u // ignore: cast_nullable_to_non_nullable
-              as int,
-      s: null == s
-          ? _value.s
-          : s // ignore: cast_nullable_to_non_nullable
-              as String,
-      b: null == b
-          ? _value.b
-          : b // ignore: cast_nullable_to_non_nullable
-              as String,
-      B: null == B
-          ? _value.B
-          : B // ignore: cast_nullable_to_non_nullable
-              as String,
-      a: null == a
-          ? _value.a
-          : a // ignore: cast_nullable_to_non_nullable
-              as String,
-      A: null == A
-          ? _value.A
-          : A // ignore: cast_nullable_to_non_nullable
-              as String,
+      updateId: freezed == updateId
+          ? _value.updateId
+          : updateId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      symbol: freezed == symbol
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestBidPrice: freezed == bestBidPrice
+          ? _value.bestBidPrice
+          : bestBidPrice // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestBidQty: freezed == bestBidQty
+          ? _value.bestBidQty
+          : bestBidQty // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestAskPrice: freezed == bestAskPrice
+          ? _value.bestAskPrice
+          : bestAskPrice // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestAskQty: freezed == bestAskQty
+          ? _value.bestAskQty
+          : bestAskQty // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$StockModelImplCopyWith<$Res>
-    implements $StockModelCopyWith<$Res> {
-  factory _$$StockModelImplCopyWith(
-          _$StockModelImpl value, $Res Function(_$StockModelImpl) then) =
-      __$$StockModelImplCopyWithImpl<$Res>;
+abstract class _$$CryptoImplCopyWith<$Res> implements $CryptoCopyWith<$Res> {
+  factory _$$CryptoImplCopyWith(
+          _$CryptoImpl value, $Res Function(_$CryptoImpl) then) =
+      __$$CryptoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int u, String s, String b, String B, String a, String A});
+  $Res call(
+      {@JsonKey(name: "u") int? updateId,
+      @JsonKey(name: "s") String? symbol,
+      @JsonKey(name: "b") String? bestBidPrice,
+      @JsonKey(name: "B") String? bestBidQty,
+      @JsonKey(name: "a") String? bestAskPrice,
+      @JsonKey(name: "A") String? bestAskQty});
 }
 
 /// @nodoc
-class __$$StockModelImplCopyWithImpl<$Res>
-    extends _$StockModelCopyWithImpl<$Res, _$StockModelImpl>
-    implements _$$StockModelImplCopyWith<$Res> {
-  __$$StockModelImplCopyWithImpl(
-      _$StockModelImpl _value, $Res Function(_$StockModelImpl) _then)
+class __$$CryptoImplCopyWithImpl<$Res>
+    extends _$CryptoCopyWithImpl<$Res, _$CryptoImpl>
+    implements _$$CryptoImplCopyWith<$Res> {
+  __$$CryptoImplCopyWithImpl(
+      _$CryptoImpl _value, $Res Function(_$CryptoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of StockModel
+  /// Create a copy of Crypto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? u = null,
-    Object? s = null,
-    Object? b = null,
-    Object? B = null,
-    Object? a = null,
-    Object? A = null,
+    Object? updateId = freezed,
+    Object? symbol = freezed,
+    Object? bestBidPrice = freezed,
+    Object? bestBidQty = freezed,
+    Object? bestAskPrice = freezed,
+    Object? bestAskQty = freezed,
   }) {
-    return _then(_$StockModelImpl(
-      u: null == u
-          ? _value.u
-          : u // ignore: cast_nullable_to_non_nullable
-              as int,
-      s: null == s
-          ? _value.s
-          : s // ignore: cast_nullable_to_non_nullable
-              as String,
-      b: null == b
-          ? _value.b
-          : b // ignore: cast_nullable_to_non_nullable
-              as String,
-      B: null == B
-          ? _value.B
-          : B // ignore: cast_nullable_to_non_nullable
-              as String,
-      a: null == a
-          ? _value.a
-          : a // ignore: cast_nullable_to_non_nullable
-              as String,
-      A: null == A
-          ? _value.A
-          : A // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_$CryptoImpl(
+      updateId: freezed == updateId
+          ? _value.updateId
+          : updateId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      symbol: freezed == symbol
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestBidPrice: freezed == bestBidPrice
+          ? _value.bestBidPrice
+          : bestBidPrice // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestBidQty: freezed == bestBidQty
+          ? _value.bestBidQty
+          : bestBidQty // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestAskPrice: freezed == bestAskPrice
+          ? _value.bestAskPrice
+          : bestAskPrice // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bestAskQty: freezed == bestAskQty
+          ? _value.bestAskQty
+          : bestAskQty // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$StockModelImpl implements _StockModel {
-  const _$StockModelImpl(
-      {required this.u,
-      required this.s,
-      required this.b,
-      required this.B,
-      required this.a,
-      required this.A});
+class _$CryptoImpl implements _Crypto {
+  const _$CryptoImpl(
+      {@JsonKey(name: "u") required this.updateId,
+      @JsonKey(name: "s") required this.symbol,
+      @JsonKey(name: "b") required this.bestBidPrice,
+      @JsonKey(name: "B") required this.bestBidQty,
+      @JsonKey(name: "a") required this.bestAskPrice,
+      @JsonKey(name: "A") required this.bestAskQty});
 
-  factory _$StockModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StockModelImplFromJson(json);
+  factory _$CryptoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CryptoImplFromJson(json);
 
   @override
-  final int u;
-// order book updateId
+  @JsonKey(name: "u")
+  final int? updateId;
   @override
-  final String s;
-// symbol
+  @JsonKey(name: "s")
+  final String? symbol;
   @override
-  final String b;
-// best bid price
+  @JsonKey(name: "b")
+  final String? bestBidPrice;
   @override
-  final String B;
-// best bid qty
+  @JsonKey(name: "B")
+  final String? bestBidQty;
   @override
-  final String a;
-// best ask price
+  @JsonKey(name: "a")
+  final String? bestAskPrice;
   @override
-  final String A;
+  @JsonKey(name: "A")
+  final String? bestAskQty;
 
   @override
   String toString() {
-    return 'StockModel(u: $u, s: $s, b: $b, B: $B, a: $a, A: $A)';
+    return 'Crypto(updateId: $updateId, symbol: $symbol, bestBidPrice: $bestBidPrice, bestBidQty: $bestBidQty, bestAskPrice: $bestAskPrice, bestAskQty: $bestAskQty)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StockModelImpl &&
-            (identical(other.u, u) || other.u == u) &&
-            (identical(other.s, s) || other.s == s) &&
-            (identical(other.b, b) || other.b == b) &&
-            (identical(other.B, B) || other.B == B) &&
-            (identical(other.a, a) || other.a == a) &&
-            (identical(other.A, A) || other.A == A));
+            other is _$CryptoImpl &&
+            (identical(other.updateId, updateId) ||
+                other.updateId == updateId) &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.bestBidPrice, bestBidPrice) ||
+                other.bestBidPrice == bestBidPrice) &&
+            (identical(other.bestBidQty, bestBidQty) ||
+                other.bestBidQty == bestBidQty) &&
+            (identical(other.bestAskPrice, bestAskPrice) ||
+                other.bestAskPrice == bestAskPrice) &&
+            (identical(other.bestAskQty, bestAskQty) ||
+                other.bestAskQty == bestAskQty));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, u, s, b, B, a, A);
+  int get hashCode => Object.hash(runtimeType, updateId, symbol, bestBidPrice,
+      bestBidQty, bestAskPrice, bestAskQty);
 
-  /// Create a copy of StockModel
+  /// Create a copy of Crypto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$StockModelImplCopyWith<_$StockModelImpl> get copyWith =>
-      __$$StockModelImplCopyWithImpl<_$StockModelImpl>(this, _$identity);
+  _$$CryptoImplCopyWith<_$CryptoImpl> get copyWith =>
+      __$$CryptoImplCopyWithImpl<_$CryptoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$StockModelImplToJson(
+    return _$$CryptoImplToJson(
       this,
     );
   }
 }
 
-abstract class _StockModel implements StockModel {
-  const factory _StockModel(
-      {required final int u,
-      required final String s,
-      required final String b,
-      required final String B,
-      required final String a,
-      required final String A}) = _$StockModelImpl;
+abstract class _Crypto implements Crypto {
+  const factory _Crypto(
+      {@JsonKey(name: "u") required final int? updateId,
+      @JsonKey(name: "s") required final String? symbol,
+      @JsonKey(name: "b") required final String? bestBidPrice,
+      @JsonKey(name: "B") required final String? bestBidQty,
+      @JsonKey(name: "a") required final String? bestAskPrice,
+      @JsonKey(name: "A") required final String? bestAskQty}) = _$CryptoImpl;
 
-  factory _StockModel.fromJson(Map<String, dynamic> json) =
-      _$StockModelImpl.fromJson;
+  factory _Crypto.fromJson(Map<String, dynamic> json) = _$CryptoImpl.fromJson;
 
   @override
-  int get u; // order book updateId
+  @JsonKey(name: "u")
+  int? get updateId;
   @override
-  String get s; // symbol
+  @JsonKey(name: "s")
+  String? get symbol;
   @override
-  String get b; // best bid price
+  @JsonKey(name: "b")
+  String? get bestBidPrice;
   @override
-  String get B; // best bid qty
+  @JsonKey(name: "B")
+  String? get bestBidQty;
   @override
-  String get a; // best ask price
+  @JsonKey(name: "a")
+  String? get bestAskPrice;
   @override
-  String get A;
+  @JsonKey(name: "A")
+  String? get bestAskQty;
 
-  /// Create a copy of StockModel
+  /// Create a copy of Crypto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StockModelImplCopyWith<_$StockModelImpl> get copyWith =>
+  _$$CryptoImplCopyWith<_$CryptoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

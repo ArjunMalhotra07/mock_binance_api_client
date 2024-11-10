@@ -1,49 +1,38 @@
 import 'dart:convert';
 
 import 'package:client_socket/constants.dart';
-import 'package:client_socket/market_socket.dart';
 import 'package:client_socket/stock_model/stock_model.dart';
 import 'package:client_socket/user/user.dart';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MarketSocketPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter WebSocket Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: MarketSocketPage(),
-    );
-  }
+  _MarketSocketPageState createState() => _MarketSocketPageState();
 }
 
-class WebSocketPage extends StatefulWidget {
-  @override
-  _WebSocketPageState createState() => _WebSocketPageState();
-}
-
-class _WebSocketPageState extends State<WebSocketPage> {
-  final WebSocketChannel channel = WebSocketChannel.connect(
-    Uri.parse(Constants.userURL),
-  );
+class _MarketSocketPageState extends State<MarketSocketPage> {
+  final WebSocketChannel channel =
+      WebSocketChannel.connect(Uri.parse(Constants.marketURL));
 
   final TextEditingController _textController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final List<User> _receivedUsers = [];
+
+  static List<String> coinsList = [
+    "ETHBTC",
+    "LTCBTC",
+    "BNBBTC",
+    "NEOBTC",
+    "QTUMETH",
+    "EOSETH",
+    "SNTETH",
+    "BNTETH",
+    "BCCBTC"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("WebSocket Example")),
+      appBar: AppBar(title: const Text("Market Data Example")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -57,10 +46,9 @@ class _WebSocketPageState extends State<WebSocketPage> {
                   return Text("Error: ${snapshot.error}");
                 } else if (snapshot.hasData) {
                   try {
-                    final user = User.fromJson(jsonDecode(snapshot.data));
-                    _receivedUsers.add(user);
+                    final crypto = Crypto.fromJson(jsonDecode(snapshot.data));
                     return Text(
-                      "Name: ${user.name}\nEmail: ${user.email}\n",
+                      "Symbol: ${crypto.symbol}\nBestBidPrice: ${crypto.bestBidPrice}\nBestBidQty: ${crypto.bestBidQty}\nBestAskPrice: ${crypto.bestAskPrice}\nBestAskQty: ${crypto.bestAskQty}\n",
                       style: const TextStyle(fontSize: 16),
                     );
                   } catch (e) {
