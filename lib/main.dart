@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:client_socket/stock_model/stock_model.dart';
+import 'package:client_socket/user/user.dart';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
@@ -31,12 +32,12 @@ class WebSocketPage extends StatefulWidget {
 
 class _WebSocketPageState extends State<WebSocketPage> {
   final WebSocketChannel channel = WebSocketChannel.connect(
-    Uri.parse('ws://10.0.2.2:12312/ws'),
+    Uri.parse('ws://192.168.54.64:8000/ws'),
   );
 
   final TextEditingController _textController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  final List<User> _receivedUsers = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,31 +55,20 @@ class _WebSocketPageState extends State<WebSocketPage> {
                   return Text("Error: ${snapshot.error}");
                 } else if (snapshot.hasData) {
                   try {
-                    // Parse JSON data into Student object
-                    final stock =
-                        StockModel.fromJson(jsonDecode(snapshot.data));
+                    final user = User.fromJson(jsonDecode(snapshot.data));
+                    _receivedUsers.add(user);
                     return Text(
-                      "Symbol: ${stock.s}\n"
-                      "Best Bid Price: ${stock.b}\n"
-                      "Best Bid Qty: ${stock.B}\n"
-                      "Best Ask Price: ${stock.a}\n"
-                      "Best Ask Qty: ${stock.A}",
+                      "Name: ${user.name}\nEmail: ${user.email}\n",
                       style: const TextStyle(fontSize: 16),
                     );
                   } catch (e) {
-                    return const Text("Invalid data received.");
+                    return Text("Invalid data received. $e");
                   }
                 }
                 return const Text("No messages received.");
               },
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                channel.sink.add("Client Ping");
-              },
-              child: const Text("Send Ping"),
-            ),
             const Spacer(),
             Form(
               key: _formKey,
