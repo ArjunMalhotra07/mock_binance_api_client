@@ -15,8 +15,6 @@ class _MarketSocketPageState extends State<MarketSocketPage> {
       WebSocketChannel.connect(Uri.parse(Constants.marketURL));
 
   final TextEditingController _textController = TextEditingController();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   static List<String> coinsList = [
     "btcusdt",
     "ltcbtc",
